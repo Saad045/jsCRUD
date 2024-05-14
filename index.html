@@ -1,0 +1,146 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript CRUD</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1 class="heading">JavaScript CRUD</h1><hr>
+    <div class="form-container">
+        <form onsubmit="event.preventDefault();onFormSubmit();" autocomplete="off">
+            <input type="hidden" id="editIndex" value="">
+            <div>
+                <label for="fullName">Full Name*</label><label class="validation-error hide" id="fullNameValidationError">This field is
+                    required.</label>
+                <input type="text" name="fullName" id="fullName" required>
+            </div>
+            <div>
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email">
+            </div>
+            <div>
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password">
+            </div>
+            <div>
+                <label for="city">City</label>
+                <input type="text" name="city" id="city">
+            </div>
+            <div class="form-action-buttons">
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+    <br />
+    <div class="table-container">
+        <table class="list" id="list">
+            <thead>
+                <tr>
+                    <th>Full Name</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                    <th>City</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+    <script src="script.js"></script>
+
+</body>
+</html> -->
+<!-- let loginForm = document.getElementById("loginForm");
+loginForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    
+    // handle submit
+}); -->
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript CRUD</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1 class="heading">JavaScript CRUD</h1>
+    <button class="addUserBtn" onclick="goToAddUserPage()">Add User</button>
+    <div class="table-container">
+        <table class="list" id="list">
+            <thead>
+                <tr>
+                    <th>Full Name</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                    <th>City</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        function goToAddUserPage() {
+            window.location.href = "user.html";
+        }
+
+        function displayUsers() {
+            var users = JSON.parse(localStorage.getItem("userData")) ?? [];
+            var tableBody = document.querySelector("#list tbody");
+            tableBody.innerHTML = "";
+            users.forEach(function (user, index) {
+                var row = tableBody.insertRow();
+                row.insertCell(0).textContent = user.fullName;
+                row.insertCell(1).textContent = user.email;
+                row.insertCell(2).textContent = user.password;
+                row.insertCell(3).textContent = user.city;
+
+                var actionsCell = row.insertCell(4);
+                actionsCell.innerHTML = `<a onClick="onEdit(this)">Edit</a>
+               <a onClick="onDelete(this)">Delete</a>`;
+            });
+        }
+
+        function onDelete(td) {
+            if (confirm(`Are you sure to delete this ${td.parentElement.parentElement.rowIndex - 1} record?`)) {
+                var row = td.parentElement.parentElement;
+                let rowIndex = row.rowIndex - 1;
+                // console.log(row);
+                document.getElementById("list").deleteRow(row.rowIndex);
+
+                let userArr = JSON.parse(localStorage.getItem('userData')) ?? [];
+                userArr.splice(rowIndex, 1);
+                localStorage.setItem('userData', JSON.stringify(userArr));
+            }
+        }
+
+        function onEdit(td) {
+            let rowIndex = td.parentElement.parentElement.rowIndex - 1;
+            localStorage.setItem("editIndex", rowIndex);
+            window.location.href = "user.html";
+        }
+
+        displayUsers();
+    </script>
+</body>
+
+</html>

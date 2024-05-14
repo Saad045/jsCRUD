@@ -1,0 +1,89 @@
+* {
+    margin: 0;
+    padding: 0; 
+    box-sizing: border-box;
+}
+.heading {
+    text-align: center;
+    margin: 10px 0;
+}
+.form-container {
+    border: 2px solid black;
+    padding: 10px;
+    margin: 10px auto;
+    width: 50%;
+}
+
+.table-container {
+    border-style: solid;
+    padding: 20px;
+    margin: auto;
+    width: 70%;
+}
+
+body > table{
+    width: 80%;
+}
+
+table{
+    border-collapse: collapse;
+}
+table.list{
+    width:100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+tr:nth-child(even),table.list thead>tr {
+    background-color: #dddddd;
+}
+
+input[type=text], input[type=email], input[type=password] {
+    width: 100%;
+    padding: 8px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 30%;
+    background-color: black;
+    color: white;
+    padding: 10px 18px; 
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form div.form-action-buttons {
+    text-align: right;
+}
+
+a {
+    cursor: pointer;
+    text-decoration: underline;
+    color: #0000ee;
+    margin-right: 4px;
+}
+
+label.validation-error{
+    color:   red;
+    margin-left: 5px;
+}
+
+.hide{
+    display:none;
+}
+
+.addUserBtn{
+    padding: 10px;
+    cursor: pointer;
+    margin-left: 13rem;
+    margin-bottom: 15px;
+}

@@ -1,0 +1,113 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+</head>
+
+<body>
+    <h1 class="heading">Add User</h1>
+    <div class="form-container">
+        <form onsubmit="event.preventDefault();onFormSubmit();" autocomplete="off">
+            <input type="hidden" id="editIndex" value="">
+            <div>
+                <label for="fullName">Full Name*</label><label class="validation-error hide" id="fullNameValidationError">This field is
+                    required.</label>
+                <input type="text" name="fullName" id="fullName" required>
+            </div>
+            <div>
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email">
+            </div>
+            <div>
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password">
+            </div>
+            <div>
+                <label for="city">City</label>
+                <input type="text" name="city" id="city">
+            </div>
+            <div class="form-action-buttons">
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Function to populate form with user data for editing
+        function populateFormForEdit() {
+            var editIndex = localStorage.getItem("editIndex");
+            if (editIndex !== null) {
+                var users = JSON.parse(localStorage.getItem("userData")) ?? [];
+                var user = users[editIndex];
+                document.getElementById("fullName").value = user.fullName;
+                document.getElementById("email").value = user.email;
+                document.getElementById("password").value = user.password;
+                document.getElementById("city").value = user.city;
+                document.getElementById("editIndex").value = editIndex;
+            }
+        }
+
+        populateFormForEdit(); // Populate form for edit mode
+    </script>
+</body>
+
+</html> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add User</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1 class="heading">Add User</h1>
+    <div class="form-container">
+        <form onsubmit="event.preventDefault();onFormSubmit();" autocomplete="off">
+            <input type="hidden" id="editIndex" value="">
+            <div>
+                <label for="fullName">Full Name*</label><label class="validation-error hide"
+                    id="fullNameValidationError">This field is
+                    required.</label>
+                <input type="text" name="fullName" id="fullName" required autofocus>
+            </div>
+            <div>
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email">
+            </div>
+            <div>
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password">
+            </div>
+            <div>
+                <label for="city">City</label>
+                <input type="text" name="city" id="city">
+            </div>
+            <div class="form-action-buttons">
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
